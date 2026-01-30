@@ -1,64 +1,118 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <title>Yükleniyor...</title>
+<meta charset="UTF-8">
+<title>GD Oyuncusu</title>
 
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #0f0f0f;
-      color: white;
-      font-family: Arial, sans-serif;
-      font-size: 26px;
-      opacity: 1;
-      transition: opacity 0.8s ease;
-      cursor: pointer;
-    }
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    body.fade-out {
-      opacity: 0;
-    }
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, #050505, #0b0b0b);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+}
 
-    .hint {
-      position: absolute;
-      bottom: 30px;
-      font-size: 14px;
-      opacity: 0.6;
-    }
-  </style>
+/* ARKA PLAN ÇİZGİLER (VALORANT VIBE) */
+.bg-lines::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      120deg,
+      rgba(255,255,255,0.03),
+      rgba(255,255,255,0.03) 1px,
+      transparent 1px,
+      transparent 60px
+    );
+  animation: moveBg 3s linear infinite;
+}
+
+@keyframes moveBg {
+  from { transform: translateX(0); }
+  to { transform: translateX(-120px); }
+}
+
+/* LOGO */
+.logo {
+  width: 160px;
+  z-index: 2;
+  animation: logoEnter 0.9s ease-out forwards,
+             logoGlitch 1.5s infinite alternate;
+}
+
+/* LOGO GİRİŞ */
+@keyframes logoEnter {
+  from {
+    transform: scale(0.3) rotate(-10deg);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) rotate(0);
+    opacity: 1;
+  }
+}
+
+/* GLITCH */
+@keyframes logoGlitch {
+  0% { filter: drop-shadow(3px 0 red); }
+  50% { filter: drop-shadow(-3px 0 cyan); }
+  100% { filter: drop-shadow(3px 0 lime); }
+}
+
+/* CS / VALORANT FLASH */
+.flash {
+  position: absolute;
+  inset: 0;
+  background: white;
+  opacity: 0;
+  animation: flash 2.8s forwards;
+}
+
+@keyframes flash {
+  0% { opacity: 0; }
+  65% { opacity: 0; }
+  70% { opacity: 0.8; }
+  75% { opacity: 0; }
+}
+
+/* FADE OUT */
+.fade-out {
+  animation: fadeOut 0.7s forwards;
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; }
+}
+</style>
+
+<script>
+  // Fade-out
+  setTimeout(() => {
+    document.body.classList.add("fade-out");
+  }, 2800);
+
+  // Ana siteye geçiş
+  setTimeout(() => {
+    window.location.href = "home.html";
+  }, 3500);
+</script>
+
 </head>
 <body>
 
-  Yükleniyor...
-  <div class="hint">Devam etmek için tıkla</div>
-
-  <audio id="startupSound" src="startup.mp3"></audio>
-
-  <script>
-    let started = false;
-
-    document.body.addEventListener("click", () => {
-      if (started) return;
-      started = true;
-
-      const sound = document.getElementById("startupSound");
-      sound.volume = 0.6;
-      sound.play();
-
-      setTimeout(() => {
-        document.body.classList.add("fade-out");
-      }, 2200);
-
-      setTimeout(() => {
-        window.location.href = "home.html";
-      }, 3000);
-    });
-  </script>
+  <div class="bg-lines"></div>
+  <div class="flash"></div>
+  <img src="logo.png" class="logo">
 
 </body>
 </html>
