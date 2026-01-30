@@ -3,22 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <title>Yükleniyor...</title>
-  <link rel="icon" href="favicon.png">
-  <link rel="stylesheet" href="loading.css">
 
-  <!-- OTOMATİK GEÇİŞ -->
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #0f0f0f;
+      color: white;
+      font-family: Arial, sans-serif;
+      font-size: 24px;
+    }
+  </style>
+
   <script>
-    setTimeout(() => {
+    setTimeout(function () {
       window.location.href = "home.html";
-    }, 2500); // 2.5 saniye
+    }, 3000); // 3 saniye
   </script>
 </head>
 <body>
 
-  <div class="loader-container">
-    <div class="spinner"></div>
-    <p>Yükleniyor...</p>
-  </div>
+  Yükleniyor...
 
 </body>
 </html>
