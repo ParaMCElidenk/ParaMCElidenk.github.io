@@ -1,262 +1,32 @@
 body {
-  margin: 0;
-  background-color: #eeeeee;
-  font-family: Arial, sans-serif;
-}
-
-header {
-  background-color: #8b1c1c;
-  text-align: center;
-  padding: 40px 20px;
+  background: #0f0f0f;
   color: white;
+  text-align: center;
+  font-family: Arial;
 }
 
 .logo {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  display: block;
-  margin: 0 auto 15px auto;
-  object-fit: cover;
-}
-.links {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  flex-wrap: wrap;
+  width: 120px;
+  margin-top: 60px;
 }
 
-.btn {
-  text-decoration: none;
-  color: white;
-  padding: 12px 22px;
-  border-radius: 30px;
-  font-weight: bold;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-}
-
-.youtube {
-  background-color: #ff0000;
-}
-
-.discord {
-  background-color: #5865F2;
-}
-.instagram {
-  background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af);
-}
-
-.kick {
-  background-color: #53fc18;
-  color: #000;
-}
-.btn:active {
-  transform: scale(0.96);
-}
-.live-status {
-  margin-top: 15px;
-  text-align: center;
-  font-weight: bold;
-  color: #fff;
-  background-color: #e10600;
-  padding: 10px 20px;
-  border-radius: 25px;
-  display: inline-block;
-  animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(225,6,0, 0.7);
-  }
-  70% {
-    box-shadow: 0 0 0 15px rgba(225,6,0, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(225,6,0, 0);
-  }
-}
-.social-links {
-  margin-top: 25px;
-  text-align: center;
-}
-
-/* Genel buton */
-.social-btn {
-  display: inline-block;
-  margin: 10px;
-  padding: 12px 28px;
-  font-size: 18px;
-  font-weight: bold;
-  text-decoration: none;
-  color: white;
-  border-radius: 30px;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.social-btn:hover {
-  transform: scale(1.08);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-}
-
-/* Kick */
-.kick {
-  background-color: #00ff6a;
-  color: black;
-}
-
-/* YouTube */
-.youtube {
-  background-color: #ff0000;
-}
-
-/* CANLI etiketi */
-.live-status {
-  display: inline-block;
-  margin-bottom: 15px;
-  background-color: #e10600;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 25px;
-  font-weight: bold;
-  animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(225,6,0,0.7); }
-  70% { box-shadow: 0 0 0 15px rgba(225,6,0,0); }
-  100% { box-shadow: 0 0 0 0 rgba(225,6,0,0); }
-}
-header {
-  background-color: #8b1c1c;
-  text-align: center;
-  padding: 50px 20px;
-  color: white;
-}
-
-.logo {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 20px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-}
-
-/* CANLI etiketi */
-.live-status {
-  margin: 20px auto;
-  display: inline-block;
-  background: #e10600;
-  padding: 10px 22px;
-  border-radius: 30px;
-  font-weight: bold;
-  animation: pulse 1.5s infinite;
-}
-
-/* Sosyal alan */
-.social-links {
-  margin-top: 20px;
-}
-
-.social-btn {
-  display: inline-block;
-  margin: 10px;
-  padding: 12px 30px;
-  font-size: 18px;
-  font-weight: bold;
-  border-radius: 30px;
-  text-decoration: none;
-  color: white;
-  transition: transform 0.2s;
-}
-
-.social-btn:hover {
-  transform: scale(1.08);
-}
-
-.kick {
-  background-color: #00ff6a;
-  color: black;
-}
-
-.youtube {
-  background-color: #ff0000;
-}
-
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(225,6,0,0.7); }
-  70% { box-shadow: 0 0 0 15px rgba(225,6,0,0); }
-  100% { box-shadow: 0 0 0 0 rgba(225,6,0,0); }
-}
-
-.live-status {
-  margin: 20px auto;
-  display: inline-block;
-  padding: 10px 22px;
-  border-radius: 30px;
-  font-weight: bold;
-  font-size: 16px;
-}
-
-/* OFFLINE */
-.live-status.offline {
-  background-color: #555;
-  color: white;
-}
-
-/* ONLINE */
-.live-status.online {
-  background-color: #e10600;
-  color: white;
-  animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(225,6,0,0.7); }
-  70% { box-shadow: 0 0 0 15px rgba(225,6,0,0); }
-  100% { box-shadow: 0 0 0 0 rgba(225,6,0,0); }
-}
-/* SAYFA AÇILIŞ ANİMASYONU */
 .fade-in {
-  animation: fadeUp 1s ease-out;
+  animation: fade 1s ease-in;
 }
 
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@keyframes fade {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; }
 }
 
-/* Logo biraz daha geç gelsin */
-.logo {
-  animation: fadeUp 1.2s ease-out;
+.social-btn {
+  display: inline-block;
+  padding: 12px 20px;
+  margin: 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
 }
 
-/* Yazılar gecikmeli */
-header h1 {
-  animation: fadeUp 1.4s ease-out;
-}
-
-header p {
-  animation: fadeUp 1.6s ease-out;
-}
-
-.live-status {
-  animation: fadeUp 1.8s ease-out;
-}
-
-.social-links {
-  animation: fadeUp 2s ease-out;
-}
+.kick { background: #53fc18; color: black; }
+.youtube { background: #ff0000; }
