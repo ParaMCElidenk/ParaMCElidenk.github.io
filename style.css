@@ -223,3 +223,40 @@ header {
   70% { box-shadow: 0 0 0 15px rgba(225,6,0,0); }
   100% { box-shadow: 0 0 0 0 rgba(225,6,0,0); }
 }
+/* SAYFA AÇILIŞ ANİMASYONU */
+.fade-in {
+  animation: fadeUp 1s ease-out;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Logo biraz daha geç gelsin */
+.logo {
+  animation: fadeUp 1.2s ease-out;
+}
+
+/* Yazılar gecikmeli */
+header h1 {
+  animation: fadeUp 1.4s ease-out;
+}
+
+header p {
+  animation: fadeUp 1.6s ease-out;
+}
+
+.live-status {
+  animation: fadeUp 1.8s ease-out;
+}
+
+.social-links {
+  animation: fadeUp 2s ease-out;
+}
