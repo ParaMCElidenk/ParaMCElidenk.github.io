@@ -1,21 +1,6 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <footer class="site-footer">
-  <div class="footer-content">
-
-    <div class="footer-left">
-      © 2026 <span>GD Oyuncusu</span>
-    </div>
-
-    <div class="footer-right">
-      <a href="https://kick.com/baharelidenk" target="_blank">Kick</a>
-      <a href="https://www.youtube.com/@umutcreator" target="_blank">YouTube</a>
-    </div>
-
-  </div>
-</footer>
-
 <meta charset="UTF-8">
 <title>GD Intro</title>
 
@@ -29,16 +14,6 @@ html, body {
   font-family: Arial, sans-serif;
 }
 
-/* VIDEO */
-video {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: none;
-}
-
 /* START SCREEN */
 .start-screen {
   position: fixed;
@@ -48,10 +23,11 @@ video {
   align-items: center;
   justify-content: center;
   color: #00ff66;
-  font-size: 32px;
+  font-size: 36px;
   cursor: pointer;
-  text-shadow: 0 0 20px #00ff66;
+  text-shadow: 0 0 25px #00ff66;
   animation: pulse 1s infinite alternate;
+  z-index: 5;
 }
 
 @keyframes pulse {
@@ -59,49 +35,80 @@ video {
   to { opacity: 1; }
 }
 
-/* FADE */
-.fade {
-  animation: fadeOut 0.8s forwards;
+/* VIDEO */
+video {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+  z-index: 1;
+}
+
+/* FADE OUT */
+.fade-out {
+  animation: fadeOut 1s forwards;
 }
 
 @keyframes fadeOut {
   to { opacity: 0; }
 }
 </style>
-
 </head>
+
 <body>
 
 <!-- START -->
-<div class="start-screen" id="start">
+<div class="start-screen" id="startScreen">
   ▶ BAŞLA
 </div>
 
-<!-- VIDEO -->
-<video id="introVideo">
-  <source src="0130.mp4" type="video/mp4">
+<!-- VIDEO (sessiz olabilir, önemli değil) -->
+<video id="introVideo" playsinline>
+  <source src="intro.mp4" type="video/mp4">
 </video>
 
-<script>
-const start = document.getElementById("start");
-const video = document.getElementById("introVideo");
+<!-- SES (ASIL SES BURADA) -->
+<audio id="introAudio">
+  <source src="intro.mp3" type="audio/mpeg">
+</audio>
 
-start.addEventListener("click", () => {
-  start.style.display = "none";
+<script>
+const startScreen = document.getElementById("startScreen");
+const video = document.getElementById("introVideo");
+const audio = document.getElementById("introAudio");
+
+startScreen.addEventListener("click", () => {
+
+  // Start ekranını kaldır
+  startScreen.style.display = "none";
+
+  // Video göster
   video.style.display = "block";
 
-  video.muted = false;     // 🔥 ZORLA SES AÇ
-  video.volume = 1.0;      // 🔊 %100 SES
+  // SES AYARLARI
+  audio.volume = 1.0;
+  audio.currentTime = 0;
 
-  video.play().catch(err => {
-    console.log("Ses hatası:", err);
-  });
+  // VIDEO AYARLARI
+  video.currentTime = 0;
+  video.muted = true; // Videonun sesi KAPALI (biz mp3 kullanıyoruz)
 
-  video.onended = () => {
-    document.body.classList.add("fade");
+  // OYNAT
+  video.play();
+  audio.play().catch(e => console.log("Ses hatası:", e));
+
+  // 12 SANİYE SONRA ANA SİTE
+  setTimeout(() => {
+    document.body.classList.add("fade-out");
     setTimeout(() => {
       window.location.href = "home.html";
-    }, 800);
-  };
+    }, 1000);
+  }, 12000);
+
 });
 </script>
+
+</body>
+</html>
